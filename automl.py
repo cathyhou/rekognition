@@ -3,8 +3,9 @@ from openpyxl import load_workbook
 wb = load_workbook(filename = 'results.xlsx')
 ws = wb['results']
 
-results = [0, 0, 0, 0, 0]
+# calculate how many images of each emotion in test image dataset
 
+results = [0, 0, 0, 0, 0]
 
 def toEmotion(emo):
     current = ['HAPPY', 'NEUTRAL', 'SCARED', 'ANGRY', 'SAD']

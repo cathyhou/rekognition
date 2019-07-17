@@ -7,6 +7,8 @@ wb = load_workbook(filename = 'results.xlsx')
 ws = wb['results']
 array = [[0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0]]
 
+# build confusion matrix for rekognition results and automl
+
 
 def change(emo):
     emotions = ['HAPPY', 'NEUTRAL', 'SCARED', 'ANGRY', 'SAD']

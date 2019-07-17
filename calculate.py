@@ -3,6 +3,8 @@ from openpyxl import load_workbook
 wb = load_workbook(filename = 'results.xlsx')
 ws = wb['results']
 
+# calculate accuracy
+
 count = 0
 
 for i in range(128):

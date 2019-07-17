@@ -1,5 +1,4 @@
 from openpyxl import load_workbook
-import sys
 
 wb = load_workbook(filename = 'results.xlsx')
 ws = wb['results']
@@ -13,6 +12,8 @@ def toEmotion(emo):
             return list[i]
     return 'error'
 
+
+# determine what correct emotion is from image file path
 
 for i in range(128):
     row = str(i+2)
