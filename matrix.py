@@ -27,17 +27,17 @@ for row in range(128):
         array[true][predicted] = current + 1
 
 
-df_cm = pd.DataFrame(array, columns=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"], index=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"] )
+df_cm = pd.DataFrame(array, columns=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"], index=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"])
 plt.figure(figsize = (10,10))
 sn.set(font_scale=1)
-ax = sn.heatmap(df_cm, annot=True,annot_kws={"size": 10}, cbar=False, cmap='Blues')# font size
+ax = sn.heatmap(df_cm, annot=True,annot_kws={"size": 24}, cbar=False, cmap='Blues', fmt='g')# font size
 ax.xaxis.tick_top()
 ax.xaxis.set_ticks_position('none')
-ax.set_xlabel('Predicted \n', fontsize=16)
-ax.xaxis.set_label_position('top')
-plt.yticks(va='center')
-plt.ylabel('True \n', fontsize=16)
-#plt.show()
+plt.yticks(va='center', size=16)
+plt.xticks(va='center', size=16)
+plt.ylabel('True \n', fontsize=20, fontweight='bold')
+plt.title('Predicted \n', fontsize=20, fontweight='bold')
+plt.xlabel('\n REKOGNITION', fontsize=28, fontweight='heavy')
 
 array2 = array
 
@@ -49,14 +49,34 @@ for row in range(5):
         current = array2[row][col]
         array2[row][col] = round(current/s * 100.00, 1)
 
-df_cm = pd.DataFrame(array2, columns=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"], index=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"] )
+df_cm = pd.DataFrame(array2, columns=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"], index=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"])
 plt.figure(figsize = (10,10))
 sn.set(font_scale=1)
-ax = sn.heatmap(df_cm, annot=True,annot_kws={"size": 10}, cbar=False, cmap='Blues', fmt='g')# font size
+ax = sn.heatmap(df_cm, annot=True,annot_kws={"size": 24}, cbar=False, cmap='Blues', fmt='g')# font size
 ax.xaxis.tick_top()
 ax.xaxis.set_ticks_position('none')
-ax.set_xlabel('Predicted \n', fontsize=16)
-ax.xaxis.set_label_position('top')
-plt.yticks(va='center')
-plt.ylabel('True \n', fontsize=16)
+plt.yticks(va='center', size=16)
+plt.xticks(va='center', size=16)
+plt.ylabel('True \n', fontsize=20, fontweight='bold')
+plt.title('Predicted \n', fontsize=20, fontweight='bold')
+plt.xlabel('\n REKOGNITION', fontsize=28, fontweight='heavy')
+plt.savefig('RekognitionConfusion.eps')
+
+
+array3=[[23, 7, 0, 0, 0], [4, 54, 0, 0, 0], [0, 0, 14, 2, 0], [0, 0, 0, 10, 0], [0, 0, 0, 0, 15]]
+df_cm = pd.DataFrame(array3, columns=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"], index=["HAPPY","NEUTRAL","SCARED","ANGRY","SAD"] )
+plt.figure(figsize = (10,10))
+sn.set(font_scale=1)
+ax = sn.heatmap(df_cm, annot=True,annot_kws={"size": 24}, cbar=False, cmap='Blues', fmt='g')# font size
+ax.xaxis.tick_top()
+ax.xaxis.set_ticks_position('none')
+plt.yticks(va='center', size=16)
+plt.xticks(va='center', size=16)
+plt.ylabel('True \n', fontsize=20, fontweight='bold')
+plt.title('Predicted \n', fontsize=20, fontweight='bold')
+plt.xlabel('\n GUESS WHAT?', fontsize=28, fontweight='heavy')
+plt.savefig('GWConfusion.eps')
+
 plt.show()
+
+
